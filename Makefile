@@ -6,7 +6,7 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 16:02:49 by besalort          #+#    #+#              #
-#    Updated: 2023/03/03 18:07:12 by besalort         ###   ########.fr        #
+#    Updated: 2023/03/16 16:17:07 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,15 +22,16 @@ CFLAGS += -Wall -Wextra -Werror -g3
 LIBFT = $(LIBFT_PATH)libft.a
 
 SRC = ft_so_long.c \
-	ft_inputs.c \
-	ft_frameload.c \
-	ft_drawmap.c \
-	ft_move.c \
-	ft_position.c \
 	ft_check.c \
+	ft_close.c \
+	ft_count.c \
+	ft_drawmap.c \
+	ft_frameload.c \
+	ft_inputs.c \
 	ft_load.c \
 	ft_map_check.c \
-	ft_count.c \
+	ft_move.c \
+	ft_position.c \
 	
 
 OBJ = $(SRC:.c=.o)

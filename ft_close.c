@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_so_long.c                                       :+:      :+:    :+:   */
+/*   ft_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 15:52:11 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/16 16:21:41 by besalort         ###   ########.fr       */
+/*   Created: 2023/03/16 16:14:09 by besalort          #+#    #+#             */
+/*   Updated: 2023/03/16 18:09:08 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	so_long()
+int	ft_exit(mlxid *id)
 {
-	mlxid	id;
-	
-	ft_load_values(&id);
-	id.mlx = mlx_init();
-	id.win = mlx_new_window(id.mlx, id.width, id.height, "so_long");
-	ft_load_img(&id);
-	if (ft_check(&id) == 0)
-		return (ft_putstr_fd("ERROR", 1));
-	ft_drawmap(&id);
-	mlx_key_hook(id.win, ft_key_pressed, &id);
-	mlx_hook(id.win, ON_DESTROY, 0, ft_exit, &id);
-	mlx_loop(id.mlx);
+	mlx_destroy_window(id->mlx, id->win);
+	ft_freemap(id);
+	ft_freeimgl(id);
+	return (exit(0), 0);
 }
 
-int	main(void)
+void	ft_freemap(mlxid *id)
 {
-	so_long();
+	free(id->map);
+}
+
+void	ft_freeimgl(mlxid *id)
+{
+	free(id->imgl.wall.img);
+	free(id->imgl.grd.img);
+	free(id->imgl.plr.img);
+	free(id->imgl.key.img);
+	free(id->imgl.trp.img);
 }

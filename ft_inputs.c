@@ -6,22 +6,16 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:24:48 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/14 17:29:46 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/16 17:53:04 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_closewin(mlxid id)
-{
-	mlx_destroy_window(id.mlx, id.win);
-	return (0);
-}
-
 int	ft_key_pressed(int key, mlxid *id)
 {
 	if (key == 65307)
-		exit(0);
+		ft_exit(id);
 	else if (key == 119)
 		ft_move_up(id, key);
 	else if (key == 115)
@@ -30,9 +24,8 @@ int	ft_key_pressed(int key, mlxid *id)
 		ft_move_right(id, key);
 	else if (key == 97)
 		ft_move_left(id, key);
+	ft_check_key(id);
 	ft_drawmap(id);
-	id->info.trp = ft_trp_count(id);
-	if (id->info.trp == 0)
-		exit(0);
+	ft_check_end(id);
 	return (0);
 }

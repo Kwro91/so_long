@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:01:14 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/14 18:52:11 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:05:48 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,16 @@ enum
 
 int		ft_check(mlxid *id);
 int		ft_checkmap(mlxid *id);
-int		ft_key_pressed(int key, mlxid *id);
 int		ft_count_weight(mlxid *id);
 int		ft_count_height(mlxid *id);
-int		ft_closewin(mlxid id);
 int		ft_check_up(mlxid *id, int key);
 int		ft_check_down(mlxid *id, int key);
 int		ft_check_right(mlxid *id, int key);
 int		ft_check_left(mlxid *id, int key);
+int		ft_exit(mlxid *id);
+void	ft_freemap(mlxid *id);
+void	ft_freeimgl(mlxid *id);
+int		ft_key_pressed(int key, mlxid *id);
 int		ft_key_count(mlxid *id);
 int		ft_plr_count(mlxid *id);
 int		ft_plrk_count(mlxid *id);
@@ -107,6 +109,8 @@ t_xpm	animalload(mlxid id);
 t_xpm	wallload(mlxid id);
 t_xpm	groundload(mlxid id);
 t_xpm	animal_keyload(mlxid id);
+void	ft_check_end(mlxid *id);
+void	ft_check_key(mlxid *id);
 void	ft_drawmap(mlxid *id);
 void	ft_load_values(mlxid *id);
 void	ft_load_img(mlxid *id);
