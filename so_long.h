@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:01:14 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/16 18:05:48 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:26:02 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include "minilibx-linux/mlx.h"
 # include <X11/keysym.h>
 
+	# define ON_DESTROY 17
 
 	typedef struct s_img
 	{
@@ -75,16 +76,6 @@
 		t_game	info;
 	}	mlxid;
 
-enum 
-{
-	ON_KEYDOWN = 2,
-	ON_KEYUP = 3,
-	ON_MOUSEDOWN = 4,
-	ON_MOUSEUP = 5,
-	ON_MOUSEMOVE = 6,
-	ON_EXPOSE = 12,
-	ON_DESTROY = 17
-};
 
 int		ft_check(mlxid *id);
 int		ft_checkmap(mlxid *id);
@@ -103,21 +94,25 @@ int		ft_plr_count(mlxid *id);
 int		ft_plrk_count(mlxid *id);
 int		ft_trp_count(mlxid *id);
 t_pos	ft_where(mlxid *id);
-t_xpm	trappeload(mlxid id);
-t_xpm	keyload(mlxid id);
-t_xpm	animalload(mlxid id);
-t_xpm	wallload(mlxid id);
-t_xpm	groundload(mlxid id);
-t_xpm	animal_keyload(mlxid id);
+void	trappeload(mlxid *id);
+void	keyload(mlxid *id);
+void	animalload(mlxid *id);
+void	animal_keyload(mlxid id);
+void	groundload(mlxid *id);
+void	ft_error(mlxid *id, char *error);
 void	ft_check_end(mlxid *id);
 void	ft_check_key(mlxid *id);
+void	ft_check_name(char *name);
 void	ft_drawmap(mlxid *id);
-void	ft_load_values(mlxid *id);
+void	ft_error_map();
+void	ft_error_name(void);
+void	ft_load_values(mlxid *id, char *name);
 void	ft_load_img(mlxid *id);
 void	ft_drawmap_uses(mlxid *id, char c, t_pos i);
-void	ft_maptransform(mlxid *id);
+void	ft_maptransform(mlxid *id, char *name);
 void	ft_move_up(mlxid *id, int key);
 void	ft_move_down(mlxid *id, int key);
 void	ft_move_right(mlxid *id, int key);
 void	ft_move_left(mlxid *id, int key);
+void	wallload(mlxid *id);
 #endif

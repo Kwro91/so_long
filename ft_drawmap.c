@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 17:56:56 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/14 18:25:10 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:43:37 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_drawmap_uses(mlxid *id, char c, t_pos i)
 	else if (c == 'E')
 		mlx_put_image_to_window(id->mlx, id->win,
 			id->imgl.trp.img, i.x * 50, i.y * 50);
+	mlx_string_put(id->mlx, id->win, 25, 25, 0xFFFF00, "Moves :");
+	mlx_string_put(id->mlx, id->win, 75, 25, 0xFFFF00, ft_itoa(id->inputs));
 }
 
 void	ft_drawmap(mlxid *id)

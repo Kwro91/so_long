@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_close.c                                         :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 16:14:09 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/17 18:34:57 by besalort         ###   ########.fr       */
+/*   Created: 2023/03/17 15:12:04 by besalort          #+#    #+#             */
+/*   Updated: 2023/03/17 18:27:52 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_exit(mlxid *id)
+void	ft_error_name(void)
 {
-	mlx_destroy_window(id->mlx, id->win);
-	ft_freemap(id);
-	ft_freeimgl(id);
-	return (exit(0), 0);
+	ft_putstr_fd("Le nom de map est invalide", 1);
+		exit(0);
 }
 
-void	ft_freemap(mlxid *id)
+void	ft_error_map()
 {
-	free(id->map);
+	ft_putstr_fd("Veuillez selectionner une map valide", 1);
+		exit(0);
 }
 
-void	ft_freeimgl(mlxid *id)
+void	ft_error(mlxid *id, char *error)
 {
-	free(id->imgl.wall.img);
-	free(id->imgl.grd.img);
-	free(id->imgl.plr.img);
-	free(id->imgl.key.img);
-	free(id->imgl.trp.img);
+	//on peux define des char * de msg d'erreur pour les utiliser ici
+	//il faut tout free ici
+	ft_putstr_fd(error, 1);
+	ft_exit(id);
 }

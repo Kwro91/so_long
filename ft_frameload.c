@@ -6,63 +6,58 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 17:46:43 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/14 16:41:03 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:35:31 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_xpm	groundload(mlxid id)
+void	groundload(mlxid *id)
 {
-	t_xpm	grd;
-
-	grd.path = "./img/Ground.xpm";
-	grd.hgt = 50;
-	grd.wdth = 50;
-	grd.img = mlx_xpm_file_to_image(id.mlx, grd.path, &grd.wdth, &grd.hgt);
-	return (grd);
+	id->imgl.grd.path = "./img/Ground.xpm";
+	id->imgl.grd.hgt = 50;
+	id->imgl.grd.wdth = 50;
+	id->imgl.grd.img = mlx_xpm_file_to_image(id->mlx, id->imgl.grd.path, &id->imgl.grd.wdth, &id->imgl.grd.hgt);
+	if (id->imgl.grd.img == NULL)
+		ft_error(id, "Veuillez charger des frames valides");
 }
 
-t_xpm	wallload(mlxid id)
+void	wallload(mlxid *id)
 {
-	t_xpm	wal;
-
-	wal.path = "./img/Wall.xpm";
-	wal.hgt = 50;
-	wal.wdth = 50;
-	wal.img = mlx_xpm_file_to_image(id.mlx, wal.path, &wal.wdth, &wal.hgt);
-	return (wal);
+	id->imgl.wall.path = "./img/Wall.xpm";
+	id->imgl.wall.hgt = 50;
+	id->imgl.wall.wdth = 50;
+	id->imgl.wall.img = mlx_xpm_file_to_image(id->mlx, id->imgl.wall.path, &id->imgl.wall.wdth, &id->imgl.wall.hgt);
+	if (id->imgl.wall.img == NULL)
+		ft_error(id, "Veuillez charger des frames valides");
 }
 
-t_xpm	animalload(mlxid id)
+void	animalload(mlxid *id)
 {
-	t_xpm	plr;
-
-	plr.path = "./img/Animal.xpm";
-	plr.hgt = 50;
-	plr.wdth = 50;
-	plr.img = mlx_xpm_file_to_image(id.mlx, plr.path, &plr.wdth, &plr.hgt);
-	return (plr);
+	id->imgl.plr.path = "./img/Animal.xpm";
+	id->imgl.plr.hgt = 50;
+	id->imgl.plr.wdth = 50;
+	id->imgl.plr.img = mlx_xpm_file_to_image(id->mlx, id->imgl.plr.path, &id->imgl.plr.wdth, &id->imgl.plr.hgt);
+	if (id->imgl.plr.img == NULL)
+		ft_error(id, "Veuillez charger des frames valides");
 }
 
-t_xpm	keyload(mlxid id)
+void	keyload(mlxid *id)
 {
-	t_xpm	key;
-
-	key.path = "./img/Key.xpm";
-	key.hgt = 50;
-	key.wdth = 50;
-	key.img = mlx_xpm_file_to_image(id.mlx, key.path, &key.wdth, &key.hgt);
-	return (key);
+	id->imgl.key.path = "./img/Key.xpm";
+	id->imgl.key.hgt = 50;
+	id->imgl.key.wdth = 50;
+	id->imgl.key.img = mlx_xpm_file_to_image(id->mlx, id->imgl.key.path, &id->imgl.key.wdth, &id->imgl.key.hgt);
+	if (id->imgl.key.img == NULL)
+		ft_error(id, "Veuillez charger des frames valides");
 }
 
-t_xpm	trappeload(mlxid id)
+void	trappeload(mlxid *id)
 {
-	t_xpm	trp;
-
-	trp.path = "./img/Trappe.xpm";
-	trp.hgt = 50;
-	trp.wdth = 50;
-	trp.img = mlx_xpm_file_to_image(id.mlx, trp.path, &trp.wdth, &trp.hgt);
-	return (trp);
+	id->imgl.trp.path = "./img/Trappe.xpm";
+	id->imgl.trp.hgt = 50;
+	id->imgl.trp.wdth = 50;
+	id->imgl.trp.img = mlx_xpm_file_to_image(id->mlx, id->imgl.trp.path, &id->imgl.trp.wdth, &id->imgl.trp.hgt);
+	if (id->imgl.trp.img == NULL)
+		ft_error(id, "Veuillez charger des frames valides");
 }

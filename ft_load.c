@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:08:58 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/16 18:07:09 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:08:31 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,17 @@ int	ft_count_width(mlxid *id)
 	return (i * 50);
 }
 
-void	ft_maptransform(mlxid *id)
+void	ft_maptransform(mlxid *id, char *name)
 {
-	int		fd;
-	char	*map;
-	char	*line;
-	
-	fd = open("./map.ber", O_RDONLY);
-		map = malloc(1);
-		map[0] = '\0';
+	char		*map;
+	char		*line;	
+	const int	fd = open(name, O_RDONLY);
+
+	if (fd < 0)
+		ft_error_name();
+	map = ft_strdup("");
+	if (!map)
+		ft_error_map();
 	while(1)
 	{
 		line = get_next_line(fd);
@@ -48,16 +50,16 @@ void	ft_maptransform(mlxid *id)
 			break ;
 		map = ft_strjoin(map, line);
 		free(line);
-		
 	}
 	id->map = ft_split(map, '\n');
-	free(line);
-	free(map);
+	if (id->map[0] == NULL)
+		return(free(line), free(map), ft_error_map());
+	return (free(line), free(map));
 }
 
-void	ft_load_values(mlxid *id)
+void	ft_load_values(mlxid *id, char *name)
 {
-	ft_maptransform(id);
+	ft_maptransform(id, name);
 	id->width = ft_count_width(id);
 	id->height = ft_count_height(id);
 	id->inputs = 0;
@@ -68,9 +70,9 @@ void	ft_load_values(mlxid *id)
 
 void	ft_load_img(mlxid *id)
 {
-	id->imgl.trp = trappeload(*id);
-	id->imgl.key = keyload(*id);
-	id->imgl.plr = animalload(*id);
-	id->imgl.wall = wallload(*id);
-	id->imgl.grd = groundload(*id);
+	trappeload(id);
+	keyload(id);
+	animalload(id);
+	wallload(id);
+	groundload(id);
 }
