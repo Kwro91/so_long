@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:01:14 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/17 18:26:02 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/21 18:08:00 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,10 @@ void	ft_move_down(mlxid *id, int key);
 void	ft_move_right(mlxid *id, int key);
 void	ft_move_left(mlxid *id, int key);
 void	wallload(mlxid *id);
+void	ft_check_line_down(mlxid *id);
+void	ft_check_line_up(mlxid *id);
+void	ft_check_line_left(mlxid *id);
+void	ft_check_line_right(mlxid *id);
+void	ft_check_height(mlxid *id);
+void	ft_check_width(mlxid *id);
 #endif

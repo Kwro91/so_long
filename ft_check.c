@@ -6,11 +6,21 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:08:23 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/17 17:13:17 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:02:17 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"so_long.h"
+
+void	ft_check_key(mlxid *id)
+{
+	if (ft_key_count(id) == 0)
+	{
+		id->imgl.plr.path = "./img/Animal_key.xpm";
+		id->imgl.plr.img = mlx_xpm_file_to_image(id->mlx, id->imgl.plr.path,
+				&id->imgl.plr.wdth, &id->imgl.plr.hgt);
+	}
+}
 
 void	ft_check_name(char *name)
 {

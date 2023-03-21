@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:14:09 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/17 18:34:57 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/21 17:14:05 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 int	ft_exit(mlxid *id)
 {
-	mlx_destroy_window(id->mlx, id->win);
+	if (id->mlx != NULL && id->win != NULL)
+		mlx_destroy_window(id->mlx, id->win);
 	ft_freemap(id);
 	ft_freeimgl(id);
-	return (exit(0), 0);
+	exit(EXIT_FAILURE);
+	return (0);
 }
 
 void	ft_freemap(mlxid *id)
 {
-	free(id->map);
+	if (id->map)
+		free(id->map);
 }
 
 void	ft_freeimgl(mlxid *id)

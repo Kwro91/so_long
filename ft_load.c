@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:08:58 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/17 18:08:31 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/21 17:16:25 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,6 @@ void	ft_load_values(mlxid *id, char *name)
 	ft_maptransform(id, name);
 	id->width = ft_count_width(id);
 	id->height = ft_count_height(id);
-	id->inputs = 0;
-	id->info.key = 0;
-	id->info.plr = 0;
-	id->info.trp = 0;
 }
 
 void	ft_load_img(mlxid *id)
