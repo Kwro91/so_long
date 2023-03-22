@@ -6,13 +6,13 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 18:01:15 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/14 18:34:14 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:27:40 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int		ft_key_count(mlxid *id)
+int	ft_key_count(mlxid *id)
 {
 	t_pos	i;
 	int		count;
@@ -33,7 +33,7 @@ int		ft_key_count(mlxid *id)
 	return (count);
 }
 
-int		ft_plr_count(mlxid *id)
+int	ft_plr_count(mlxid *id)
 {
 	t_pos	i;
 	int		count;
@@ -54,7 +54,7 @@ int		ft_plr_count(mlxid *id)
 	return (count);
 }
 
-int		ft_trp_count(mlxid *id)
+int	ft_trp_count(mlxid *id)
 {
 	t_pos	i;
 	int		count;

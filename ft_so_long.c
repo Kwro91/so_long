@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:52:11 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/21 18:42:51 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:51:58 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	so_long(char *name)
 {
 	mlxid	id;
-	
+
 	id = (mlxid){};
-	ft_check_name(name);
+	ft_check_name(&id, name);
 	ft_load_values(&id, name);
 	if (ft_check(&id) == 0)
 		ft_error(&id, "Erreur, veuillez rentrer des parametres valides");
@@ -37,7 +37,7 @@ void	so_long(char *name)
 int	main(int ac, char **av)
 {
 	if (ac != 2)
-		return (ft_putstr_fd("Inserez un seul nom de fichier de map", 1),0);
+		return (ft_putstr_fd("Inserez un seul nom de fichier de map", 1), 0);
 	so_long(av[1]);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:08:58 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/21 17:16:25 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/22 17:06:29 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	ft_maptransform(mlxid *id, char *name)
 	const int	fd = open(name, O_RDONLY);
 
 	if (fd < 0)
-		ft_error_name();
+		ft_error(id, "Le fichier n'est pas valide");
 	map = ft_strdup("");
 	if (!map)
-		ft_error_map();
-	while(1)
+		ft_error(id, "Erreur de map");
+	while (1)
 	{
 		line = get_next_line(fd);
 		if (!line)
@@ -53,7 +53,7 @@ void	ft_maptransform(mlxid *id, char *name)
 	}
 	id->map = ft_split(map, '\n');
 	if (id->map[0] == NULL)
-		return(free(line), free(map), ft_error_map());
+		return (free(line), free(map), ft_error(id, "Le nom de la map n'est pas valide"));
 	return (free(line), free(map));
 }
 
@@ -66,9 +66,9 @@ void	ft_load_values(mlxid *id, char *name)
 
 void	ft_load_img(mlxid *id)
 {
-	trappeload(id);
-	keyload(id);
-	animalload(id);
-	wallload(id);
-	groundload(id);
+	ft_trappeload(id);
+	ft_keyload(id);
+	ft_animalload(id);
+	ft_wallload(id);
+	ft_groundload(id);
 }

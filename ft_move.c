@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:07:43 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/14 18:42:34 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:31:08 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_move_up(mlxid *id, int key)
 {
 	t_pos	i;
+
 	i = ft_where(id);
 	if (key == 119 && ft_check_up(id, key))
 	{
@@ -24,14 +25,15 @@ void	ft_move_up(mlxid *id, int key)
 			id->map[i.y][i.x] = '0';
 		}
 		id->inputs++;
-		ft_putnbr_fd(id->inputs, 1);
-		ft_putchar_fd('\n',1);
+		ft_putnbr_fd (id->inputs, 1);
+		ft_putchar_fd ('\n', 1);
 	}
 }
 
 void	ft_move_down(mlxid *id, int key)
 {
 	t_pos	i;
+
 	i = ft_where(id);
 	if (key == 115 && ft_check_down(id, key))
 	{
@@ -41,14 +43,15 @@ void	ft_move_down(mlxid *id, int key)
 			id->map[i.y][i.x] = '0';
 		}
 		id->inputs++;
-		ft_putnbr_fd(id->inputs, 1);
-		ft_putchar_fd('\n',1);
+		ft_putnbr_fd (id->inputs, 1);
+		ft_putchar_fd ('\n', 1);
 	}
 }
 
 void	ft_move_right(mlxid *id, int key)
 {
 	t_pos	i;
+
 	i = ft_where(id);
 	if (key == 100 && ft_check_right(id, key))
 	{
@@ -58,14 +61,15 @@ void	ft_move_right(mlxid *id, int key)
 			id->map[i.y][i.x] = '0';
 		}
 		id->inputs++;
-		ft_putnbr_fd(id->inputs, 1);
-		ft_putchar_fd('\n',1);
+		ft_putnbr_fd (id->inputs, 1);
+		ft_putchar_fd ('\n', 1);
 	}
 }
 
 void	ft_move_left(mlxid *id, int key)
 {
 	t_pos	i;
+
 	i = ft_where(id);
 	if (key == 97 && ft_check_left(id, key))
 	{
@@ -75,7 +79,7 @@ void	ft_move_left(mlxid *id, int key)
 			id->map[i.y][i.x] = '0';
 		}
 		id->inputs++;
-		ft_putnbr_fd(id->inputs, 1);
-		ft_putchar_fd('\n',1);
+		ft_putnbr_fd (id->inputs, 1);
+		ft_putchar_fd ('\n', 1);
 	}
 }

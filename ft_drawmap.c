@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 17:56:56 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/17 16:43:37 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:27:54 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_drawmap(mlxid *id)
 		i.x = 0;
 		while (id->map[i.y][i.x] && i.x < id->width / 50)
 		{
-			if (id->map[i.y][i.x] == '0' || id->map[i.y][i.x] == '1'||
+			if (id->map[i.y][i.x] == '0' || id->map[i.y][i.x] == '1' ||
 					id->map[i.y][i.x] == 'P' || id->map[i.y][i.x] == 'C' ||
 						id->map[i.y][i.x] == 'E')
 				ft_drawmap_uses(id, id->map[i.y][i.x], i);

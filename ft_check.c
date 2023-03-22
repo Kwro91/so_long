@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:08:23 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/21 16:02:17 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:46:39 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,21 @@ void	ft_check_key(mlxid *id)
 	}
 }
 
-void	ft_check_name(char *name)
+void	ft_check_name(mlxid *id, char *name)
 {
 	char	*end;
 
 	if (ft_strlen(name) < 5)
-		ft_error_name();
+		ft_error(id, "Le nom de la map n'est pas valide");
 	end = ft_strrchr(name, '/');
 	if (end)
 		if (ft_strncmp(end, "/.ber", 5) == 0)
-			ft_error_name();
+			ft_error(id, "Le nom de la map n'est pas valide");
 	end = ft_strrchr(name, '.');
 	if (!end)
-		ft_error_name();
+		ft_error(id, "Le nom de la map n'est pas valide");
 	if (ft_strncmp(end, ".ber", 4) != 0)
-		ft_error_name();
+		ft_error(id, "Le nom de la map n'est pas valide");
 }
 
 void	ft_check_end(mlxid	*id)
@@ -53,5 +53,5 @@ int	ft_check(mlxid *id)
 {
 	if (ft_checkmap(id) == 1)
 		return (1);
-	return (ft_error_map(), 0);
+	return (ft_error(id, "La map n'est pas valide"), 0);
 }

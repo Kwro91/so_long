@@ -6,7 +6,7 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 16:02:49 by besalort          #+#    #+#              #
-#    Updated: 2023/03/21 17:59:59 by besalort         ###   ########.fr        #
+#    Updated: 2023/03/22 18:38:38 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,9 @@ SRC = ft_so_long.c \
 	ft_frameload.c \
 	ft_inputs.c \
 	ft_load.c \
+	ft_mapcpy.c \
 	ft_move.c \
+	ft_parsing.c \
 	ft_position.c \
 	
 

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 15:24:47 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/14 16:48:41 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:31:25 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ int	ft_check_left(mlxid *id, int key)
 	}
 	return (1);
 }
-
 
 t_pos	ft_where(mlxid *id)
 {
