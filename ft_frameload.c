@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 17:46:43 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/22 17:05:27 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:46:17 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_groundload(mlxid *id)
 	id->imgl.grd.img = mlx_xpm_file_to_image(id->mlx, id->imgl.grd.path,
 			&id->imgl.grd.wdth, &id->imgl.grd.hgt);
 	if (id->imgl.grd.img == NULL)
-		ft_error(id, "Veuillez charger des frames valides");
+		ft_error(id, "Error, put valid frames\n");
 }
 
 void	ft_wallload(mlxid *id)
@@ -31,7 +31,7 @@ void	ft_wallload(mlxid *id)
 	id->imgl.wall.img = mlx_xpm_file_to_image(id->mlx, id->imgl.wall.path,
 			&id->imgl.wall.wdth, &id->imgl.wall.hgt);
 	if (id->imgl.wall.img == NULL)
-		ft_error(id, "Veuillez charger des frames valides");
+		ft_error(id, "Error, put valid frames\n");
 }
 
 void	ft_animalload(mlxid *id)
@@ -42,7 +42,7 @@ void	ft_animalload(mlxid *id)
 	id->imgl.plr.img = mlx_xpm_file_to_image(id->mlx, id->imgl.plr.path,
 			&id->imgl.plr.wdth, &id->imgl.plr.hgt);
 	if (id->imgl.plr.img == NULL)
-		ft_error(id, "Veuillez charger des frames valides");
+		ft_error(id, "Error, put valid frames\n");
 }
 
 void	ft_keyload(mlxid *id)
@@ -53,7 +53,7 @@ void	ft_keyload(mlxid *id)
 	id->imgl.key.img = mlx_xpm_file_to_image(id->mlx, id->imgl.key.path,
 			&id->imgl.key.wdth, &id->imgl.key.hgt);
 	if (id->imgl.key.img == NULL)
-		ft_error(id, "Veuillez charger des frames valides");
+		ft_error(id, "Error, put valid frames\n");
 }
 
 void	ft_trappeload(mlxid *id)
@@ -64,5 +64,5 @@ void	ft_trappeload(mlxid *id)
 	id->imgl.trp.img = mlx_xpm_file_to_image(id->mlx, id->imgl.trp.path,
 			&id->imgl.trp.wdth, &id->imgl.trp.hgt);
 	if (id->imgl.trp.img == NULL)
-		ft_error(id, "Veuillez charger des frames valides");
+		ft_error(id, "Error, put valid frames\n");
 }

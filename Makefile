@@ -6,7 +6,7 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 16:02:49 by besalort          #+#    #+#              #
-#    Updated: 2023/03/22 18:38:38 by besalort         ###   ########.fr        #
+#    Updated: 2023/03/29 14:24:55 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,6 @@ fclean : clean
 	rm -f $(NAME)
 	make fclean -C $(LIBFT_PATH)
 
-re: fclean all
+re : fclean all
 
 .PHONY: all clean fclean re init

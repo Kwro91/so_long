@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:52:11 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/22 16:51:58 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:42:31 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@ void	so_long(char *name)
 	id = (mlxid){};
 	ft_check_name(&id, name);
 	ft_load_values(&id, name);
-	if (ft_check(&id) == 0)
-		ft_error(&id, "Erreur, veuillez rentrer des parametres valides");
+	ft_check(&id);
 	id.mlx = mlx_init();
 	if (!id.mlx)
-		ft_error(&id, "Erreur lors du chargement de la minilibx");
-	id.win = mlx_new_window(id.mlx, id.width, id.height, "so_long");
+		ft_error(&id, "Error loading mlx\n");
+	id.win = mlx_new_window(id.mlx, id.width, id.height, "so_long\n");
 	if (!id.win)
-		ft_error(&id, "Erreur lors du chargement de la fenetre mlx");
+		ft_error(&id, "Error loading mlx window\n");
 	ft_load_img(&id);
 	ft_drawmap(&id);
 	mlx_key_hook(id.win, ft_key_pressed, &id);
@@ -37,7 +36,7 @@ void	so_long(char *name)
 int	main(int ac, char **av)
 {
 	if (ac != 2)
-		return (ft_putstr_fd("Inserez un seul nom de fichier de map", 1), 0);
+		return (ft_putstr_fd("Error, put only one name of map\n", 1), 0);
 	so_long(av[1]);
 	return (0);
 }

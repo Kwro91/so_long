@@ -6,12 +6,11 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:17:57 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/22 19:35:51 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/31 17:05:44 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 int	ft_is_char_hide(char c)
 {
@@ -26,19 +25,15 @@ void	ft_check_parse_mapcpy(mlxid *id)
 	int	j;
 
 	j = 0;
-	while (id->mapcpy[j])
+	while (id->mapcpy[j] && id->mapcpy)
 	{
 		i = 0;
 		while (id->mapcpy[j][i])
 		{
 			if (ft_is_char_hide(id->mapcpy[j][i]) == 0)
-			{
-				free(id->mapcpy[j]);
-				ft_error(id, "Map non finissable");
-			}
+				ft_error(id, "Error, the map is not possible\n");
 			i++;
 		}
-		free(id->mapcpy[j]);
 		j++;
 	}
 }
@@ -64,16 +59,14 @@ void	ft_pars_direction(mlxid *id, int x, int y)
 		if (ft_is_replace(id, x, y - 1))
 			ft_pars_direction(id, x, y - 1);
 	}
-
 }
 
 void	ft_parsing(mlxid *id)
 {
-	t_pos pos;
-	
+	t_pos	pos;
+
 	ft_mapcpy(id);
 	pos = ft_where(id);
 	ft_pars_direction(id, (int)pos.x, (int)pos.y);
 	ft_check_parse_mapcpy(id);
-	
 }

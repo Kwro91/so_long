@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 18:29:39 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/22 19:32:52 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/31 17:04:49 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ void	ft_mapcpy(mlxid *id)
 	{
 		count++;
 	}
-	id->mapcpy = malloc(sizeof(char *) * count + 1);
+	id->mapcpy = ft_calloc(count + 1, sizeof(char *));
+	if (!id->mapcpy)
+		return (free(id->mapcpy), ft_error(id, "Error malloc\n"));
 	count = 0;
 	while (id->map[count])
 	{

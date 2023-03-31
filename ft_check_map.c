@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:36:53 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/22 17:55:19 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/24 19:16:08 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_check_parse_map(mlxid *id)
 		while (id->map[j][i])
 		{
 			if (ft_is_char_good(id->map[j][i]) == 0)
-				ft_error(id, "Caracteres invalides dans la map");
+				ft_error(id, "Error, invalid characters in map\n");
 			i++;
 		}
 		j++;
@@ -50,7 +50,7 @@ void	ft_check_width(mlxid *id)
 		while (id->map[y][i])
 			i++;
 		if (i != ((id->width) / 50))
-			ft_error(id, "Map non rectangulaire WIDTH");
+			ft_error(id, "Error map, map is not a rectangle (Width)\n");
 		i = 0;
 		y++;
 	}
@@ -68,7 +68,7 @@ void	ft_check_height(mlxid *id)
 		while (id->map[y] && id->map[y][i])
 			y++;
 		if (y != ((id->height) / 50))
-			ft_error(id, "Map non rectangulaire HEIGHT");
+			ft_error(id, "Error map, map is not a rectangle (Height)\n");
 		y = 0;
 		i++;
 	}

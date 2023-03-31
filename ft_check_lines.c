@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:59:09 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/22 16:22:15 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:42:58 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_check_line_up(mlxid *id)
 		if (id->map[y][i] == '1')
 			i++;
 		else
-			ft_error(id, "Erreur de map, ligne du haut non valide");
+			ft_error(id, "Error map, invalid upper line\n");
 	}
 }
 
@@ -40,7 +40,7 @@ void	ft_check_line_down(mlxid *id)
 		if (id->map[y][i] == '1')
 			i++;
 		else
-			ft_error(id, "Erreur de map, ligne du bas non valide");
+			ft_error(id, "Error map, invalid down line\n");
 	}
 }
 
@@ -56,7 +56,7 @@ void	ft_check_line_left(mlxid *id)
 		if (id->map[y][i] == '1')
 			y++;
 		else
-			ft_error(id, "Erreur de map, ligne de gauche non valide");
+			ft_error(id, "Error map, invalid left line\n");
 	}
 }
 
@@ -72,6 +72,6 @@ void	ft_check_line_right(mlxid *id)
 		if (id->map[y][i] == '1')
 			y++;
 		else
-			ft_error(id, "Erreur de map, ligne de droite non valide");
+			ft_error(id, "Error map, invalid right line\n");
 	}
 }

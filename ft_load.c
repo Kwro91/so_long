@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:08:58 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/22 17:06:29 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/31 17:04:38 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,28 @@ int	ft_count_width(mlxid *id)
 void	ft_maptransform(mlxid *id, char *name)
 {
 	char		*map;
+	char		*tmp;
 	char		*line;	
 	const int	fd = open(name, O_RDONLY);
 
 	if (fd < 0)
-		ft_error(id, "Le fichier n'est pas valide");
-	map = ft_strdup("");
+		ft_error(id, "Error, invalid file\n");
+	map = ft_calloc(1, 1);
 	if (!map)
-		ft_error(id, "Erreur de map");
+		return (free(map), ft_error(id, "Error map\n"));
 	while (1)
 	{
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		map = ft_strjoin(map, line);
+		tmp = ft_strjoin(map, line);
+		free(map);
+		map = tmp;
 		free(line);
 	}
 	id->map = ft_split(map, '\n');
 	if (id->map[0] == NULL)
-		return (free(line), free(map), ft_error(id, "Le nom de la map n'est pas valide"));
+		return (free(line), free(map), ft_error(id, "Error, invalid name\n"));
 	return (free(line), free(map));
 }
 

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:14:09 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/22 19:24:44 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:26:21 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,48 @@
 
 int	ft_exit(mlxid *id)
 {
-	if (id->mlx != NULL && id->win != NULL)
-		mlx_destroy_window(id->mlx, id->win);
 	ft_freemap(id);
-	//ft_freeimgl(id);
+	if (id->mlx != NULL && id->win != NULL)
+	{
+		ft_destroy(id);
+		mlx_destroy_display(id->mlx);
+	}
+	free(id->mlx);
 	exit(0);
-	return (0);
+}
+
+void	ft_destroy(mlxid *id)
+{
+	mlx_destroy_image(id->mlx, id->imgl.grd.img);
+	mlx_destroy_image(id->mlx, id->imgl.plr.img);
+	mlx_destroy_image(id->mlx, id->imgl.key.img);
+	mlx_destroy_image(id->mlx, id->imgl.trp.img);
+	mlx_destroy_image(id->mlx, id->imgl.wall.img);
+	mlx_destroy_window(id->mlx, id->win);
 }
 
 void	ft_freemap(mlxid *id)
 {
-	if (id->map)
-		free(id->map);
-	if (id->mapcpy)
-		free(id->mapcpy);
-}
+	int	i;
 
-void	ft_freeimgl(mlxid *id)
-{
-	free(id->imgl.wall.img);
-	free(id->imgl.grd.img);
-	free(id->imgl.plr.img);
-	free(id->imgl.key.img);
-	free(id->imgl.trp.img);
+	i = 0;
+	if (id->map != NULL)
+	{
+		while (id->map[i])
+		{
+			free(id->map[i]);
+			i++;
+		}
+		free(id->map);
+	}
+	i = 0;
+	if (id->mapcpy != NULL)
+	{
+		while (id->mapcpy[i])
+		{
+			free(id->mapcpy[i]);
+			i++;
+		}
+		free(id->mapcpy);
+	}
 }
