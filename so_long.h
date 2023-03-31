@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:01:14 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/29 18:11:16 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/31 18:53:16 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@
 		t_xpm	plr;
 		t_xpm	key;
 		t_xpm	trp;
+		t_xpm	trpp;
 	}	t_imgl;
 
 	typedef	struct	s_game
@@ -103,6 +104,8 @@ void	ft_wallload(mlxid *id);
 void	ft_animalload(mlxid *id);
 void	ft_keyload(mlxid *id);
 void	ft_trappeload(mlxid *id);
+//ft_frameload_second.c
+void	ft_trappe_playerload(mlxid *id);
 //ft_inputs.c
 int		ft_key_pressed(int key, mlxid *id);
 //ft_load.c
@@ -114,6 +117,11 @@ void	ft_load_img(mlxid *id);
 //ft_mapcpy.c
 void	ft_linecpy(mlxid *id, int y);
 void	ft_mapcpy(mlxid *id);
+//ft_move_exit.c
+void	ft_move_right_exit(mlxid *id, t_pos i);
+void	ft_move_left_exit(mlxid *id, t_pos i);
+void	ft_move_up_exit(mlxid *id, t_pos i);
+void	ft_move_down_exit(mlxid *id, t_pos i);
 //ft_move.c
 void	ft_move_up(mlxid *id, int key);
 void	ft_move_down(mlxid *id, int key);

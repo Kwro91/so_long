@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 18:01:15 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/22 16:27:40 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/31 18:17:27 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	ft_trp_count(mlxid *id)
 		i.x = 0;
 		while (id->map[i.y][i.x] && i.x < id->width / 50)
 		{
-			if (id->map[i.y][i.x] == 'E')
+			if (id->map[i.y][i.x] == 'E' || id->map[i.y][i.x] == 'T')
 				count++;
 			i.x++;
 		}

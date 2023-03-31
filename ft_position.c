@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 15:24:47 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/22 16:31:25 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/31 18:56:38 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@ int	ft_check_up(mlxid *id, int key)
 
 	i = ft_where(id);
 	if (key == 119)
-		if (id->map[i.y - 1][i.x] == '1' ||
-			(id->map[i.y - 1][i.x] == 'E' && (ft_key_count(id))))
+	{
+		if (id->map[i.y - 1][i.x] == '1')
 			return (0);
+		if (id->map[i.y - 1][i.x] == 'E' && (ft_key_count(id)))
+			return (-1);	
+	}
 	return (1);
 }
 
@@ -30,9 +33,12 @@ int	ft_check_down(mlxid *id, int key)
 
 	i = ft_where(id);
 	if (key == 115)
-		if (id->map[i.y + 1][i.x] == '1' ||
-			(id->map[i.y + 1][i.x] == 'E' && (ft_key_count(id))))
+	{
+		if (id->map[i.y + 1][i.x] == '1')
 			return (0);
+		if (id->map[i.y + 1][i.x] == 'E' && (ft_key_count(id)))
+			return (-1);
+	}
 	return (1);
 }
 
@@ -42,9 +48,12 @@ int	ft_check_right(mlxid *id, int key)
 
 	i = ft_where(id);
 	if (key == 100)
-		if (id->map[i.y][i.x + 1] == '1' ||
-			(id->map[i.y][i.x + 1] == 'E' && (ft_key_count(id))))
+	{
+		if (id->map[i.y][i.x + 1] == '1')
 			return (0);
+		if ((id->map[i.y][i.x + 1] == 'E' && (ft_key_count(id))))
+			return (-1);	
+	}
 	return (1);
 }
 
@@ -58,7 +67,7 @@ int	ft_check_left(mlxid *id, int key)
 		if (id->map[i.y][i.x - 1] == '1')
 			return (0);
 		if ((id->map[i.y][i.x - 1] == 'E' && (ft_key_count(id))))
-			return (0);
+			return (-1);
 	}
 	return (1);
 }
@@ -73,7 +82,7 @@ t_pos	ft_where(mlxid *id)
 		i.x = 0;
 		while (id->map[i.y][i.x] && i.x < id->width / 50)
 		{
-			if (id->map[i.y][i.x] == 'P')
+			if (id->map[i.y][i.x] == 'P' || id->map[i.y][i.x] == 'T')
 				return (i);
 			i.x++;
 		}

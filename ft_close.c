@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:14:09 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/29 18:26:21 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/31 19:01:09 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	ft_destroy(mlxid *id)
 	mlx_destroy_image(id->mlx, id->imgl.key.img);
 	mlx_destroy_image(id->mlx, id->imgl.trp.img);
 	mlx_destroy_image(id->mlx, id->imgl.wall.img);
+	mlx_destroy_image(id->mlx, id->imgl.trpp.img);
 	mlx_destroy_window(id->mlx, id->win);
 }
 

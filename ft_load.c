@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:08:58 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/31 17:04:38 by besalort         ###   ########.fr       */
+/*   Updated: 2023/03/31 18:47:47 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	ft_load_values(mlxid *id, char *name)
 
 void	ft_load_img(mlxid *id)
 {
+	ft_trappe_playerload(id);
 	ft_trappeload(id);
 	ft_keyload(id);
 	ft_animalload(id);
