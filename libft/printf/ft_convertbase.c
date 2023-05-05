@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_convertbase.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 11:33:46 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/29 15:13:53 by besalort         ###   ########.fr       */
+/*   Created: 2022/11/30 13:45:35 by besalort          #+#    #+#             */
+/*   Updated: 2023/04/07 13:31:14 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_convertbase(unsigned int nb, int up)
 {
-	size_t	i;
-	char	*b;
+	char	*base;
+	int		count;
 
-	b = (char *)s;
-	i = 0;
-	while (i < n)
-		b[i++] = 0;
+	count = 0;
+	base = "0123456789abcdef";
+	if (up == 1)
+		base = "0123456789ABCDEF";
+	if (nb > 15)
+	{
+		count += ft_convertbase(nb / 16, up);
+		count += ft_putchar_i(base[nb % 16]);
+	}
+	else
+		count += ft_putchar_i(base[nb]);
+	return (count);
 }

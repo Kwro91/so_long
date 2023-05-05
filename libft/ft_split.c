@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 17:43:20 by besalort          #+#    #+#             */
-/*   Updated: 2022/11/29 11:20:33 by besalort         ###   ########.fr       */
+/*   Updated: 2023/04/07 13:32:57 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	libere(char **tab, size_t len)
 {
-	while (len >= 0)
+	while (len > 0)
 		free(tab[len--]);
 	free(tab);
 }

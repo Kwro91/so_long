@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 11:33:46 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/29 15:13:53 by besalort         ###   ########.fr       */
+/*   Created: 2023/03/17 15:12:04 by besalort          #+#    #+#             */
+/*   Updated: 2023/05/04 17:18:22 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_error(t_data *id, char *error)
 {
-	size_t	i;
-	char	*b;
-
-	b = (char *)s;
-	i = 0;
-	while (i < n)
-		b[i++] = 0;
+	ft_putstr_fd(error, 1);
+	ft_exit(id);
 }

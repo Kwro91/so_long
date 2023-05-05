@@ -6,7 +6,7 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 16:02:49 by besalort          #+#    #+#              #
-#    Updated: 2023/03/31 18:06:25 by besalort         ###   ########.fr        #
+#    Updated: 2023/05/04 16:52:36 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,23 +21,23 @@ CFLAGS += -Wall -Wextra -Werror -g3
 
 LIBFT = $(LIBFT_PATH)libft.a
 
-SRC = ft_so_long.c \
-	ft_check_lines.c \
-	ft_check_map.c \
-	ft_check.c \
-	ft_close.c \
-	ft_count.c \
-	ft_drawmap.c \
-	ft_error.c \
-	ft_frameload_second.c \
-	ft_frameload.c \
-	ft_inputs.c \
-	ft_load.c \
-	ft_mapcpy.c \
-	ft_move_exit.c \
-	ft_move.c \
-	ft_parsing.c \
-	ft_position.c \
+SRC = ./src/ft_so_long.c \
+	./src/ft_check_lines.c \
+	./src/ft_check_map.c \
+	./src/ft_check.c \
+	./src/ft_close.c \
+	./src/ft_count.c \
+	./src/ft_drawmap.c \
+	./src/ft_error.c \
+	./src/ft_frameload_second.c \
+	./src/ft_frameload.c \
+	./src/ft_inputs.c \
+	./src/ft_load.c \
+	./src/ft_mapcpy.c \
+	./src/ft_move_exit.c \
+	./src/ft_move.c \
+	./src/ft_parsing.c \
+	./src/ft_position.c \
 	
 
 OBJ = $(SRC:.c=.o)

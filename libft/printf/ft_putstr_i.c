@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putstr_i.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 11:33:46 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/29 15:13:53 by besalort         ###   ########.fr       */
+/*   Created: 2022/11/30 13:43:39 by besalort          #+#    #+#             */
+/*   Updated: 2023/04/07 13:31:48 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_putstr_i(char *str)
 {
-	size_t	i;
-	char	*b;
+	int	i;
 
-	b = (char *)s;
 	i = 0;
-	while (i < n)
-		b[i++] = 0;
+	if (!str)
+		i += write (1, "(null)", 6);
+	else
+		while (str[i])
+			write (1, &str[i++], 1);
+	return (i);
 }

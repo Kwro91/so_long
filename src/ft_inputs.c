@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_inputs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 11:33:46 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/29 15:13:53 by besalort         ###   ########.fr       */
+/*   Created: 2023/03/01 15:24:48 by besalort          #+#    #+#             */
+/*   Updated: 2023/05/04 17:18:22 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_key_pressed(int key, t_data *id)
 {
-	size_t	i;
-	char	*b;
-
-	b = (char *)s;
-	i = 0;
-	while (i < n)
-		b[i++] = 0;
+	if (key == 65307)
+		ft_exit(id);
+	else if (key == 119)
+		ft_move_up(id, key);
+	else if (key == 115)
+		ft_move_down(id, key);
+	else if (key == 100)
+		ft_move_right(id, key);
+	else if (key == 97)
+		ft_move_left(id, key);
+	ft_check_key(id);
+	ft_drawmap(id);
+	ft_check_end(id);
+	return (0);
 }

@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_frameload_second.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 11:33:46 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/29 15:13:53 by besalort         ###   ########.fr       */
+/*   Created: 2023/03/31 17:46:17 by besalort          #+#    #+#             */
+/*   Updated: 2023/05/04 17:18:22 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_trappe_playerload(t_data *id)
 {
-	size_t	i;
-	char	*b;
-
-	b = (char *)s;
-	i = 0;
-	while (i < n)
-		b[i++] = 0;
+	id->imgl.trpp.path = "./img/Trappe_player.xpm";
+	id->imgl.trpp.hgt = 50;
+	id->imgl.trpp.wdth = 50;
+	id->imgl.trpp.img = mlx_xpm_file_to_image(id->mlx, id->imgl.trpp.path,
+			&id->imgl.trpp.wdth, &id->imgl.trpp.hgt);
+	if (id->imgl.trpp.img == NULL)
+		ft_error(id, "Error, put valid frames\n");
 }

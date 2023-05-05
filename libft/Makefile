@@ -6,7 +6,7 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 14:57:22 by besalort          #+#    #+#              #
-#    Updated: 2023/03/01 18:38:45 by besalort         ###   ########.fr        #
+#    Updated: 2023/04/07 14:35:22 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,14 @@ SRCS =	ft_atoi.c \
 		ft_substr.c \
 		ft_tolower.c \
 		ft_toupper.c \
-		../gnl/get_next_line.c
+		get_next_line.c \
+		./printf/ft_printf.c \
+		./printf/ft_adress.c \
+		./printf/ft_convertbase.c \
+		./printf/ft_putchar_i.c \
+		./printf/ft_putstr_i.c \
+		./printf/ft_putnbr_i.c \
+		./printf/ft_putnbr_u.c \
 
 SRCS_B =	ft_lstadd_back.c \
 			ft_lstadd_front.c \
@@ -61,13 +68,15 @@ SRCS_B =	ft_lstadd_back.c \
 			ft_lstsize.c \
 			ft_lstmap.c \
 
-			
-OBJS = ${SRCS:.c=.o}
 
+
+OBJS = ${SRCS:.c=.o}
 
 OBJS_B = ${SRCS_B:.c=.o}
 
-CC = cc
+OBJS_TOTAL = ${OBJS} ${OBJS_B}
+
+CC = gcc
 
 RM	= rm -f
 
@@ -78,8 +87,8 @@ AR = ar rcs
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-$(NAME):	${OBJS}
-	${AR} $(NAME) ${OBJS}
+$(NAME):	${OBJS_TOTAL}
+	${AR} $(NAME) ${OBJS_TOTAL}
 	
 all:	$(NAME)
 

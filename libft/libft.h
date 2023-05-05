@@ -13,6 +13,8 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include	"./printf/ft_printf.h"
+# include	<stdarg.h>
 # include	<string.h>
 # include	<stddef.h>
 # include	<unistd.h>
@@ -79,7 +81,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	ft_tolower(int c);
 char	ft_toupper(int c);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+
+////////////////// GET NEXT LINE ///////////////////
+
 char	*get_next_line(int fd);
-char	*ft_verif(char **stock, int nb, int fd, char **line);
-char	*ft_newline(char **stock, char **line);
+
+////////////////////FT_PRINTF /////////////////////////
+
+int	ft_printf(const char *str, ...);
+
 #endif

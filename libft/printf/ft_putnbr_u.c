@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 11:33:46 by besalort          #+#    #+#             */
-/*   Updated: 2023/03/29 15:13:53 by besalort         ###   ########.fr       */
+/*   Created: 2022/11/30 13:45:08 by besalort          #+#    #+#             */
+/*   Updated: 2023/04/07 13:31:43 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_putnbr_u(unsigned int nb)
 {
-	size_t	i;
-	char	*b;
+	int	count;
 
-	b = (char *)s;
-	i = 0;
-	while (i < n)
-		b[i++] = 0;
+	count = 0;
+	if (nb > 9)
+	{
+		count += ft_putnbr_u(nb / 10);
+		count += ft_putchar_i(nb % 10 + 48);
+	}
+	else
+		count += ft_putchar_i(nb + 48);
+	return (count);
 }
